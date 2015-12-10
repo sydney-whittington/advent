@@ -1,4 +1,5 @@
 --Day 4: The Ideal Stocking Stuffer
+import Data.List
 import Data.Digest.Pure.MD5
 import qualified Data.ByteString.Lazy.Char8 as C
 
