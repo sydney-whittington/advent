@@ -11,7 +11,7 @@ buildPath p s = Map.insert k v p
           v = read v'
           
 getCities :: [String] -> [String]
-getCities xs = Set.toList . Set.fromList $ concatMap getCity xs
+getCities = Set.toList . Set.fromList . concatMap getCity
     where getCity s = (\(c1:_:c2:xs) -> [c1, c2]) $ words s
 
 pairList :: [a] -> [(a, a)]
