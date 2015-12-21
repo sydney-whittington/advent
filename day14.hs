@@ -2,7 +2,6 @@
 import Data.Char
 import Data.List
 import qualified Data.Map.Lazy as Map
-import Data.Maybe
 
 distance :: Int -> Int -> Int -> Int -> Int
 distance speed duration rest end
