@@ -90,7 +90,7 @@ module Day1 =
         | [] -> []
         | step::[] -> [step]
         | step::next::rest ->
-            let notStep = List.concat [[next]; rest]
+            let notStep = next::rest
             if step.Coords.X <> next.Coords.X
             then List.concat [interpolateX step next; missing notStep]
             else List.concat [interpolateY step next; missing notStep]
