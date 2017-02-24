@@ -106,7 +106,7 @@ module Day1 =
             else hq rest (visited.Add coord)
 
     // part 1
-    let contents = System.IO.File.ReadAllText(@"../../day1.txt")
+    let contents = System.IO.File.ReadAllText(__SOURCE_DIRECTORY__ + "/day1.txt")
     // split on comma space, and on newline for the last entry
     let commands = contents.Split([|", ";"\n"|], System.StringSplitOptions.RemoveEmptyEntries)
 
@@ -123,4 +123,3 @@ module Day1 =
     let hqLocation = hq (Seq.toList allSteps) Set.empty
     let day1' = abs hqLocation.X + abs hqLocation.Y
     printfn ("day1': %A") day1'
-
