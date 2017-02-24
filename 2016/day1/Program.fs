@@ -73,14 +73,16 @@ module Day1 =
         | None -> move position (L 0)
 
     let interpolateX (first:Position) (last:Position) =
+        let cons = (fun x -> {Facing = first.Facing; Coords = {X = x; Y = first.Coords.Y}})
         if first.Coords.X < last.Coords.X
-        then [for i in first.Coords.X .. last.Coords.X-1 do yield {Facing = first.Facing; Coords = {X = i; Y = first.Coords.Y}}]
-        else [for i in first.Coords.X .. -1 .. last.Coords.X+1 do yield {Facing = first.Facing; Coords = {X = i; Y = first.Coords.Y}}]
+        then List.map cons [first.Coords.X .. last.Coords.X-1] 
+        else List.map cons [first.Coords.X .. -1 .. last.Coords.X+1] 
 
     let interpolateY (first:Position) (last:Position) =
+        let cons = (fun y -> {Facing = first.Facing; Coords = {X = first.Coords.X; Y = y}})
         if first.Coords.Y < last.Coords.Y
-        then [for i in first.Coords.Y .. last.Coords.Y-1 do yield {Facing = first.Facing; Coords = {Y = i; X = first.Coords.X}}]
-        else [for i in first.Coords.Y .. -1 .. last.Coords.Y+1 do yield {Facing = first.Facing; Coords = {Y = i; X = first.Coords.X}}]
+        then List.map cons [first.Coords.Y .. last.Coords.Y-1] 
+        else List.map cons [first.Coords.Y .. -1 .. last.Coords.Y+1] 
 
     // add implicit locations
     let rec missing =
