@@ -19,7 +19,10 @@ description:         Please see the README on Github at <https://github.com/gith
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Day1, Day2, Day3
+  exposed-modules:     Day1
+                     , Day2
+                     , Day3
+                     , Day4
   build-depends:       base >= 4.7 && < 5
                      , split
   default-language:    Haskell2010
