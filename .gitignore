@@ -9,3 +9,5 @@
 advent/.stack-work/
 advent/out/
 advent/.idea/
+*/.venv
+*/.vscode
