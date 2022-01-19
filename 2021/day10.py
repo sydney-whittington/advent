@@ -1,4 +1,4 @@
-with open("day10_input_short.txt") as f:
+with open("day10_input.txt") as f:
     lines = f.readlines()
 
 
@@ -19,15 +19,16 @@ corrupt_points = {
     ">": 25137
 }
 autocomplete_points = {
-    ")": 1,
-    "]": 2,
-    "}": 3,
-    ">": 4
+    "(": 1,
+    "[": 2,
+    "{": 3,
+    "<": 4
 }
 
 
 corrupt_score = 0
-incomplete_score = 0
+
+incomplete_scores = []
 for line in lines:
     stack = []
     incomplete = True
@@ -47,11 +48,14 @@ for line in lines:
         print("Incomplete")
         line_score = 0
         for char in reversed(stack):
-            # TODO: find match and add score
-            print(char)
+            line_score *= 5
+            line_score += autocomplete_points[char]
+
+        incomplete_scores.append(line_score)
 
 
 
 print(f"Corrupt score: {corrupt_score}")
-print(f"Autocomplete score: {incomplete_score}")
+# int will truncate off the remaining .5, 0 indexing means we get the middle value
+print(f"Autocomplete score: {sorted(incomplete_scores)[int(len(incomplete_scores)/2)]}")
                 
